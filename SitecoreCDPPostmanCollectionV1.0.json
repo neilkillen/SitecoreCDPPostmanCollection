@@ -1,0 +1,1402 @@
+{
+	"info": {
+		"_postman_id": "3c352d20-422a-4185-9eab-dce69491dcc0",
+		"name": "SitecoreCDPCollectionV1.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Guest",
+			"item": [
+				{
+					"name": "Locate Guests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/guests?email={{guestEmail}}&identifiers.provider={{identifiersProvider}}&identifiers.id={{identifiersId}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"guests"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "{{guestEmail}}"
+								},
+								{
+									"key": "identifiers.provider",
+									"value": "{{identifiersProvider}}"
+								},
+								{
+									"key": "identifiers.id",
+									"value": "{{identifiersId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Locate Guests using paging",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/guests?offset=1&limit=3",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"guests"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Guest",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/guests/{{guestRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"guests",
+								"{{guestRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Guest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"guestType\": \"customer\" , \r\n    \"title\": \"Mr\",\r\n    \"firstName\": \"Bill\",\r\n    \"lastName\": \"Bryers\",\r\n    \"gender\": \"male\",\r\n    \"language\": \"EN\",\r\n    \"dateOfBirth\": \"1971-03-22T00:00:00.000Z\",\r\n    \"emails\": [\r\n        \"bill.bryers@sitecorecdp.com\"\r\n    ],\r\n    \"phoneNumbers\": [\r\n        \"0851234567\"\r\n    ],\r\n    \"nationality\": \"American\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/guests",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"guests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Guest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"guestType\": \"customer\" , \r\n    \"title\": \"Mr\",\r\n    \"firstName\": \"Bill\",\r\n    \"lastName\": \"Bryers\",\r\n    \"gender\": \"male\",\r\n    \"language\": \"EN\",\r\n    \"dateOfBirth\": \"1971-03-22T00:00:00.000Z\",\r\n    \"emails\": [\r\n        \"bill.bryers@sitecorecdp.com\"\r\n    ],\r\n    \"phoneNumbers\": [\r\n        \"0851234566\"\r\n    ],\r\n    \"nationality\": \"American\",\r\n    \"city\": \"Hawkins\",\r\n    \"state\":\"IN\",\r\n    \"country\":\"US\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/guests/{{guestRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"guests",
+								"{{guestRef}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Guest Data Extensions",
+			"item": [
+				{
+					"name": "Locate Guest Data Extension",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/guests/{{guestRef}}/extEmailPreferences",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"guests",
+								"{{guestRef}}",
+								"extEmailPreferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Guest Data Extension",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/guests/{{guestRef}}/extEmailPreferences/",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"guests",
+								"{{guestRef}}",
+								"extEmailPreferences",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Guest Data Extension",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"email\",\r\n    \"format\": \"HTML\",\r\n    \"acceptedTermsAndConditions\": true,\r\n    \"shortDescription\": \"The email preferences for this guest\",\r\n    \"longDescription\": \"The email preferences for this guest\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/guests/{{guestRef}}/extEmailPreferences/",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"guests",
+								"{{guestRef}}",
+								"extEmailPreferences",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Guest Data Extension",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"email\",\r\n    \"format\": \"HTML\",\r\n    \"acceptedTermsAndConditions\": false,\r\n    \"shortDescription\": \"The email preferences for this guest\",\r\n    \"longDescription\": \"The email preferences for this guest\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/guests/{{guestRef}}/extEmailPreferences",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"guests",
+								"{{guestRef}}",
+								"extEmailPreferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Guest Data Extension",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/guests/{{guestRef}}/extEmailPreferences/42264dac-d2c2-531c-84aa-a85ef8735b6f",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"guests",
+								"{{guestRef}}",
+								"extEmailPreferences",
+								"42264dac-d2c2-531c-84aa-a85ef8735b6f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Locate Orders for Guest",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orders?guestRef={{guestRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "guestRef",
+									"value": "{{guestRef}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orders/{{orderRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"{{orderRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"orderedAt\": \"2021-11-11T15:00:03.123Z\",\r\n\"price\": 100.00,\r\n\"currencyCode\": \"USD\",\r\n\"referenceId\": \"00001\",\r\n\"paymentType\": \"Card\",\r\n\"cardType\": \"Visa\",\r\n\"pointOfSale\": \"default\",\r\n\"channel\": \"WEB\",\r\n\"status\": \"PURCHASED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orders?guestRef={{guestRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "guestRef",
+									"value": "{{guestRef}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order Items",
+			"item": [
+				{
+					"name": "Create Order Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orders/{{orderRef}}/orderItems",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"{{orderRef}}",
+								"orderItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Locate Order Items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orders/{{orderRef}}/orderItems",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"{{orderRef}}",
+								"orderItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Order Item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orderItems/{{orderItemRef}}/orderItems",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orderItems",
+								"{{orderItemRef}}",
+								"orderItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orderItems/{{orderItemRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orderItems",
+								"{{orderItemRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orderItems/{{orderItemRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orderItems",
+								"{{orderItemRef}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order Contacts",
+			"item": [
+				{
+					"name": "Locate Order Contacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orders/{{orderRef}}/contacts",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"{{orderRef}}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Order Contact",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orderContacts/{{orderContactRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orderContacts",
+								"{{orderContactRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order Contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Mr\",\r\n    \"firstName\": \"Jack\",\r\n    \"lastName\": \"Smith\",\r\n    \"gender\": \"male\",\r\n    \"dateOfBirth\": \"1976-10-28T00:00:00.000Z\",\r\n    \"emails\": [\r\n        \"jack.smith@boxever.com\"\r\n    ],\r\n    \"phoneNumbers\": [\r\n        \"+353161123345\",\r\n        \"+353861123345\"\r\n    ],\r\n    \"nationality\": \"Irish\",\r\n    \"passportNumber\": \"PZ4A9565\",\r\n    \"guest\": {\r\n        \"href\": \"https://{{apiEndpoint}}/v2/guests/{{guestRef}}\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orders/{{orderRef}}/contacts",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"{{orderRef}}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order Contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Mr\",\r\n    \"firstName\": \"Bill\",\r\n    \"lastName\": \"Bryers\",\r\n    \"gender\": \"male\",\r\n    \"dateOfBirth\": \"1976-10-28T00:00:00.000Z\",\r\n    \"emails\": [\r\n        \"bill.bryers@sitecorecdp.com\"\r\n    ],\r\n    \"phoneNumbers\": [\r\n        \"+353161123345\",\r\n        \"+110851234566\"\r\n    ],\r\n    \"nationality\": \"American\",\r\n    \"passportNumber\": \"PZ4A9565\",\r\n    \"guest\": {\r\n        \"href\": \"https://{{apiEndpoint}}/v2/guests/{{guestRef}}\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orderContacts/{{orderContactRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orderContacts",
+								"{{orderContactRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order Contact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Mr\",\r\n    \"firstName\": \"Jack\",\r\n    \"lastName\": \"Smith\",\r\n    \"gender\": \"male\",\r\n    \"dateOfBirth\": \"1976-10-28T00:00:00.000Z\",\r\n    \"emails\": [\r\n        \"jack.smith@boxever.com\"\r\n    ],\r\n    \"phoneNumbers\": [\r\n        \"+353161123345\",\r\n        \"+353861123345\"\r\n    ],\r\n    \"nationality\": \"Irish\",\r\n    \"passportNumber\": \"PZ4A9565\",\r\n    \"guest\": {\r\n        \"href\": \"https://{apiEndpoint}/v2/guests/9d94ee11-7043-4b71-980c-a777d00a7b46\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orderContacts/{{orderContactRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orderContacts",
+								"{{orderContactRef}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order Consumer",
+			"item": [
+				{
+					"name": "Locate Order Consumer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orders/{{orderRef}}/consumers",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"{{orderRef}}",
+								"consumers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Order Consumer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orderConsumers/{{orderConsumerRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orderConsumers",
+								"{{orderConsumerRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order Consumer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Mr\",\r\n    \"firstName\": \"Tom\",\r\n    \"lastName\": \"Smith\",\r\n    \"gender\": \"male\",\r\n    \"guest\": {\r\n       \"href\": \"http://{{apiEndpoint}}/v2/guests/{{guestRef}}\"\r\n    },\r\n    \"orderItems\": {\r\n       \"items\" : [{\r\n            \"href\": \"http://{{apiEndpoint}}/v2/orderItems/{{orderItemRef}}\"\r\n         }]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orders/{{orderRef}}/consumers",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"{{orderRef}}",
+								"consumers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order Consumer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Mr\",\r\n    \"firstName\": \"Tom\",\r\n    \"lastName\": \"Smith\",\r\n    \"gender\": \"male\",\r\n    \"guest\": {\r\n       \"href\": \"http://{{apiEndpoint}}/v2/guests/{{guestRef}}\"\r\n    },\r\n    \"orderItems\": {\r\n       \"items\" : [{\r\n            \"href\": \"http://{{apiEndpoint}}/v2/orderItems/{{orderItemRef}}\"\r\n         }]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orderConsumers/{{orderConsumerRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orderConsumers",
+								"{{orderConsumerRef}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Audience Sync",
+			"item": [
+				{
+					"name": "Locate Batch Flows Job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/batchFlowsJob?flowRef=9d496538-6079-49ff-8911-9964f0333528&expand=true",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"batchFlowsJob"
+							],
+							"query": [
+								{
+									"key": "flowRef",
+									"value": "9d496538-6079-49ff-8911-9964f0333528"
+								},
+								{
+									"key": "expand",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Batch Flows Job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/batchFlowsJob/{{batchFlowsJobRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"batchFlowsJob",
+								"{{batchFlowsJobRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Batch Flows Output",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/batchFlowOutput/{{batchFlowsJobRef}}/files",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"batchFlowOutput",
+								"{{batchFlowsJobRef}}",
+								"files"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Decisions",
+			"item": [
+				{
+					"name": "Retrieve Decision Model Definitions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Decision Model Definition Reference",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/orders/{{orderRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"orders",
+								"{{orderRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Decision Model Definition",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Determine Loan Limit\",\r\n  \"description\": \"customer limit calculation\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "Update Decision Model Definition Reference",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"TEST_1539184400561_PP_1 - archived 2018-10-10 16:04\",\r\n    \"modifiedByUserRef\": \"c008c81d-4941-46aa-b4e6-a17e8388498a\",\r\n    \"modifiedAt\": \"2018-10-10T16:04:20.878Z\",\r\n    \"revision\": 4,\r\n    \"archived\": true,\r\n    \"deploymentConfiguration\": {\r\n        \"variants\": [\r\n            {\r\n                \"variantRef\": \"19700f15-4069-4121-b709-1031118677c8\",\r\n                \"split\": 90,\r\n                \"status\": \"PRODUCTION\",\r\n                \"variantRevision\": 1\r\n            },\r\n            {\r\n                \"variantRef\": \"42e882a5-c8a8-4149-be76-343409d10c1c\",\r\n                \"split\": 10,\r\n                \"status\": \"PRODUCTION\",\r\n                \"variantRevision\": 1\r\n            }\r\n        ]\r\n    },\r\n    \"variants\": {\r\n        \"href\": \"https://dev-api.boxever.com/v2/decisionModelDefinitions/e8878fdb-4031-423c-a12b-5691381f0c89/variants\"\r\n    },\r\n    \"revisions\": {\r\n        \"href\": \"https://dev-api.boxever.com/v2/decisionModelDefinitions/e8878fdb-4031-423c-a12b-5691381f0c89/revisions\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//decisionModelDefinitions/{{decisionModelDefinitionRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"decisionModelDefinitions",
+								"{{decisionModelDefinitionRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Revisions of Decision Model Definition",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"TEST_1539184400561_PP_1 - archived 2018-10-10 16:04\",\r\n    \"modifiedByUserRef\": \"c008c81d-4941-46aa-b4e6-a17e8388498a\",\r\n    \"modifiedAt\": \"2018-10-10T16:04:20.878Z\",\r\n    \"revision\": 4,\r\n    \"archived\": true,\r\n    \"deploymentConfiguration\": {\r\n        \"variants\": [\r\n            {\r\n                \"variantRef\": \"19700f15-4069-4121-b709-1031118677c8\",\r\n                \"split\": 90,\r\n                \"status\": \"PRODUCTION\",\r\n                \"variantRevision\": 1\r\n            },\r\n            {\r\n                \"variantRef\": \"42e882a5-c8a8-4149-be76-343409d10c1c\",\r\n                \"split\": 10,\r\n                \"status\": \"PRODUCTION\",\r\n                \"variantRevision\": 1\r\n            }\r\n        ]\r\n    },\r\n    \"variants\": {\r\n        \"href\": \"https://dev-api.boxever.com/v2/decisionModelDefinitions/e8878fdb-4031-423c-a12b-5691381f0c89/variants\"\r\n    },\r\n    \"revisions\": {\r\n        \"href\": \"https://dev-api.boxever.com/v2/decisionModelDefinitions/e8878fdb-4031-423c-a12b-5691381f0c89/revisions\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//decisionModelDefinitions/{{decisionModelDefinitionRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"decisionModelDefinitions",
+								"{{decisionModelDefinitionRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Variants of Decision Model Reference",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//decisionModelDefinitions/{{decisionModelDefinitionRef}}/revisions/{{decisionModelDefinitionRevision}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"decisionModelDefinitions",
+								"{{decisionModelDefinitionRef}}",
+								"revisions",
+								"{{decisionModelDefinitionRevision}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Decision Model Definitions Revision Record",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//decisionModelDefinitions/{{decisionModelDefinitionRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"decisionModelDefinitions",
+								"{{decisionModelDefinitionRef}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Decision Variants",
+			"item": [
+				{
+					"name": "Retrieve Decision Model Variant Reference",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//decisionModelVariants/{{decisionModelVariantRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"decisionModelVariants",
+								"{{decisionModelVariantRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Decision Model Variant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"name\":\"Discount Seasonal Offers\",\r\n   \"modifiedByUserRef\":\"25f46901-bc51-45e8-b587-148aecf1e48f\",\r\n   \"modifiedAt\":\"2018-10-05T07:37:49.650Z\",\r\n   \"revision\":1,\r\n   \"archived\":false,\r\n   \"decisionModelDefinitionRef\":\"db6ee91d-bc02-4e83-8621-a17aee09814d\",\r\n   \"definition\":\"<definitions xmlns=\\\"http://www.omg.org/spec/DMN/20151101/dmn.xsd\\\" id=\\\"definitions\\\" name=\\\"definitions\\\" namespace=\\\"http://camunda.org/schema/1.0/dmn\\\" />\",\r\n   \"revisions\":{  \r\n      \"href\":\"https://dev-api.boxever.com/v2/decisionModelVariants/4ee0797d-e229-492d-883e-1344787002b4/revisions\"\r\n   },\r\n   \"offers\":[  \r\n\r\n   ]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//decisionModelDefinitions/{{decisionModelDefinitionRef}}/variants",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"decisionModelDefinitions",
+								"{{decisionModelDefinitionRef}}",
+								"variants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Decision Model Variant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Control\",\r\n    \"modifiedByUserRef\": \"f58e3f5a-dc4a-4dde-acf9-998580eb1975\",\r\n    \"modifiedAt\": \"2018-03-10T18:28:46.269Z\",\r\n    \"revision\": 1,\r\n    \"archived\": false,\r\n    \"decisionModelDefinitionRef\": \"6d009415-294a-4981-9341-bfa0d4867c50\",\r\n    \"definition\": \"Control\",\r\n    \"revisions\": {\r\n        \"href\": \"https://{apiEndpoint}/v2/decisionModelVariants/d10eb511-8ac7-44eb-a304-bdb141069084/revisions\"\r\n    },\r\n    \"decisionModelDefinition\": {\r\n        \"href\": \"https://{apiEndpoint}/v2/decisionModelDefinitions/6d009415-294a-4981-9341-bfa0d4867c50\"\r\n    },\r\n    \"offers\": [],\r\n    \"inProduction\": false\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//decisionModelVariants/{{decisionModelVariantRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"decisionModelVariants",
+								"{{decisionModelVariantRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Decision Model Variant Revisions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"TEST_1539184400561_PP_1 - archived 2018-10-10 16:04\",\r\n    \"modifiedByUserRef\": \"c008c81d-4941-46aa-b4e6-a17e8388498a\",\r\n    \"modifiedAt\": \"2018-10-10T16:04:20.878Z\",\r\n    \"revision\": 4,\r\n    \"archived\": true,\r\n    \"deploymentConfiguration\": {\r\n        \"variants\": [\r\n            {\r\n                \"variantRef\": \"19700f15-4069-4121-b709-1031118677c8\",\r\n                \"split\": 90,\r\n                \"status\": \"PRODUCTION\",\r\n                \"variantRevision\": 1\r\n            },\r\n            {\r\n                \"variantRef\": \"42e882a5-c8a8-4149-be76-343409d10c1c\",\r\n                \"split\": 10,\r\n                \"status\": \"PRODUCTION\",\r\n                \"variantRevision\": 1\r\n            }\r\n        ]\r\n    },\r\n    \"variants\": {\r\n        \"href\": \"https://dev-api.boxever.com/v2/decisionModelDefinitions/e8878fdb-4031-423c-a12b-5691381f0c89/variants\"\r\n    },\r\n    \"revisions\": {\r\n        \"href\": \"https://dev-api.boxever.com/v2/decisionModelDefinitions/e8878fdb-4031-423c-a12b-5691381f0c89/revisions\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//decisionModelVariants/{{decisionModelVariantRef}}/revisions",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"decisionModelVariants",
+								"{{decisionModelVariantRef}}",
+								"revisions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Decision Model Variant Revision",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"TEST_1539184400561_PP_1 - archived 2018-10-10 16:04\",\r\n    \"modifiedByUserRef\": \"c008c81d-4941-46aa-b4e6-a17e8388498a\",\r\n    \"modifiedAt\": \"2018-10-10T16:04:20.878Z\",\r\n    \"revision\": 4,\r\n    \"archived\": true,\r\n    \"deploymentConfiguration\": {\r\n        \"variants\": [\r\n            {\r\n                \"variantRef\": \"19700f15-4069-4121-b709-1031118677c8\",\r\n                \"split\": 90,\r\n                \"status\": \"PRODUCTION\",\r\n                \"variantRevision\": 1\r\n            },\r\n            {\r\n                \"variantRef\": \"42e882a5-c8a8-4149-be76-343409d10c1c\",\r\n                \"split\": 10,\r\n                \"status\": \"PRODUCTION\",\r\n                \"variantRevision\": 1\r\n            }\r\n        ]\r\n    },\r\n    \"variants\": {\r\n        \"href\": \"https://dev-api.boxever.com/v2/decisionModelDefinitions/e8878fdb-4031-423c-a12b-5691381f0c89/variants\"\r\n    },\r\n    \"revisions\": {\r\n        \"href\": \"https://dev-api.boxever.com/v2/decisionModelDefinitions/e8878fdb-4031-423c-a12b-5691381f0c89/revisions\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//decisionModelVariants/{{decisionModelVariantRef}}/revisions/{{decisionModelVariantRevision}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"decisionModelVariants",
+								"{{decisionModelVariantRef}}",
+								"revisions",
+								"{{decisionModelVariantRevision}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Connections",
+			"item": [
+				{
+					"name": "Retrieve Connections",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//connections",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"connections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Connection",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"string\",\r\n  \"name\": \"Weather Data System\",\r\n  \"description\": \"openweathermap.org connection\",\r\n  \"modifiedByUserRef\": \"c008c81d-4941-46aa-b4e6-a17e8388498a\",\r\n  \"modifiedAt\": \"2018-10-05T12:14:20.136Z\",\r\n  \"revision\": 0,\r\n  \"revisionComment\": \"first connection config\",\r\n  \"archived\": false,\r\n  \"auth\": {\r\n    \"authType\": \"oauth\"\r\n  },\r\n  \"request\": {\r\n    \"requestType\": \"get\",\r\n    \"connectionUrl\": \"https://mockserver-proxy-dev.boxever.com/sample/get/basicauth\"\r\n  },\r\n  \"exampleValue\": \"string\",\r\n   \"inputMappings\":[  \r\n            {  \r\n               \"label\":\"City\",\r\n               \"key\":\"city\",\r\n               \"type\":\"String\",\r\n               \"exampleValue\":\"DUB\",\r\n               \"mapping\":\"\"\r\n            }\r\n         ],\r\n         \"outputMappings\":[  \r\n            {  \r\n               \"label\":\"Weather At Location\",\r\n               \"outputReference\":\"weatherAtLocation\",\r\n               \"type\":\"String\"\r\n            }\r\n         ],\r\n  \"customHeaders\": [\r\n    {\r\n      \"externalConnectionRef\": \"8ad39f25-d75b-44b5-bcd0-b8f92ead9ba5\",\r\n      \"name\": \"Accept\",\r\n      \"value\": \"application/json\"\r\n    }\r\n  ],\r\n  \"systemType\": \"DATA_SYSTEM\",\r\n  \"connectionTimeout\": 1000,\r\n  \"socketTimeout\": 1000,\r\n  \"icon\": \"assets/images/icons/connections/predict-hq.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//connections",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"connections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Connection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//connections/{{connectionRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"connections",
+								"{{connectionRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Connection",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"string\",\r\n  \"name\": \"Weather Data System\",\r\n  \"description\": \"openweathermap.org connection\",\r\n  \"modifiedByUserRef\": \"c008c81d-4941-46aa-b4e6-a17e8388498a\",\r\n  \"modifiedAt\": \"2018-10-05T12:14:20.136Z\",\r\n  \"revision\": 0,\r\n  \"revisionComment\": \"first connection config\",\r\n  \"archived\": false,\r\n  \"auth\": {\r\n    \"authType\": \"oauth\"\r\n  },\r\n  \"request\": {\r\n    \"requestType\": \"get\",\r\n    \"connectionUrl\": \"https://mockserver-proxy-dev.boxever.com/sample/get/basicauth\"\r\n  },\r\n  \"exampleValue\": \"string\",\r\n   \"inputMappings\":[  \r\n            {  \r\n               \"label\":\"City\",\r\n               \"key\":\"city\",\r\n               \"type\":\"String\",\r\n               \"exampleValue\":\"DUB\",\r\n               \"mapping\":\"\"\r\n            }\r\n         ],\r\n         \"outputMappings\":[  \r\n            {  \r\n               \"label\":\"Weather At Location\",\r\n               \"outputReference\":\"weatherAtLocation\",\r\n               \"type\":\"String\"\r\n            }\r\n         ],\r\n  \"customHeaders\": [\r\n    {\r\n      \"externalConnectionRef\": \"8ad39f25-d75b-44b5-bcd0-b8f92ead9ba5\",\r\n      \"name\": \"Accept\",\r\n      \"value\": \"application/json\"\r\n    }\r\n  ],\r\n  \"systemType\": \"DATA_SYSTEM\",\r\n  \"connectionTimeout\": 1000,\r\n  \"socketTimeout\": 1000,\r\n  \"icon\": \"assets/images/icons/connections/predict-hq.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//connections/{{connectionRef}}",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"connections",
+								"{{connectionRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Connection",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"webService\":{  \r\n      \"name\":\"Destination 2\",\r\n      \"description\":\"Second\",\r\n      \"modifiedByUserRef\":\"2a45ba95-208b-451a-8c72-489a25d52913\",\r\n      \"modifiedAt\":\"2018-09-07T08:47:20.489Z\",\r\n      \"revision\":1,\r\n      \"archived\":false,\r\n      \"auth\":{  \r\n         \"authType\":\"none\"\r\n      },\r\n      \"request\":{  \r\n         \"requestType\":\"post\",\r\n         \"webServiceUrl\":\"https://silent-cloud-2479.getsandbox.com/cityinfo\",\r\n         \"requestBody\":\"{\\n  \\\"city0\\\": \\\"London\\\",\\n  \\\"season0\\\": \\\"winter\\\",\\n  \\\"city1\\\": \\\"Edinburgh\\\",\\n  \\\"season1\\\": \\\"winter\\\"\\n}\"\r\n      },\r\n      \"exampleValue\":\"{\\\"city0\\\":\\\"London\\\",\\\"season0\\\":\\\"winter\\\",\\\"city1\\\":\\\"Edinburgh\\\",\\\"season1\\\":\\\"winter\\\"}\",\r\n      \"inputMappings\":[  \r\n\r\n      ],\r\n      \"outputMappings\":[  \r\n\r\n      ],\r\n      \"customHeaders\":[  \r\n         {  \r\n            \"externalWebServiceRef\":\"25bc4f8d-afcb-4f36-8fb5-14021a1efe28\",\r\n            \"name\":\"Accept\",\r\n            \"value\":\"application/json\"\r\n         },\r\n         {  \r\n            \"externalWebServiceRef\":\"25bc4f8d-afcb-4f36-8fb5-14021a1efe28\",\r\n            \"name\":\"Accept-Encoding\",\r\n            \"value\":\"gzip\"\r\n         },\r\n         {  \r\n            \"externalWebServiceRef\":\"25bc4f8d-afcb-4f36-8fb5-14021a1efe28\",\r\n            \"name\":\"Content-Type\",\r\n            \"value\":\"application/json\"\r\n         }\r\n      ],\r\n      \"systemType\":\"DESTINATION\",\r\n      \"connectionTimeout\":1000,\r\n      \"socketTimeout\":1000,\r\n      \"icon\":\"assets/images/channel-images/sms.svg\"\r\n   },\r\n   \"webServiceContext\":{  \r\n\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2//connections/testWebService",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"",
+								"connections",
+								"testWebService"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flow Execution",
+			"item": [
+				{
+					"name": "Create Flow Execution",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientKey\": \"abBah8aelipaPeebae7roox2tiexoSee\",\r\n    \"channel\": \"WEB\",\r\n    \"language\": \"en\",\r\n    \"currencyCode\": \"EUR\",\r\n    \"pointOfSale\": \"retailsite.com\",\r\n    \"browserId\": \"56860bff-94ba-4d84-aa37-2b5a83d5411b\",\r\n    \"friendlyId\": \"home_page_banner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{apiEndpoint}}/v2/callFlows",
+							"protocol": "https",
+							"host": [
+								"{{apiEndpoint}}"
+							],
+							"path": [
+								"v2",
+								"callFlows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Run Experiment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"channel\": \"WEB\",\r\n    \"language\": \"en\",\r\n    \"currencyCode\": \"EUR\",\r\n    \"pointOfSale\": \"eupos\",\r\n    \"browserId\": \"e0lle18b-05bC-43baf-98c8-a11739304b6\",\r\n    \"clientKey\": \"lbbSTATw12v5a9ffHPW1c4hAM73GxQ\",\r\n    \"friendlyId\":\"product_recommender\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": null
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{apiKeySecret}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{apiKeyId}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiKeyId",
+			"value": ""
+		},
+		{
+			"key": "apiKeySecret",
+			"value": ""
+		},
+		{
+			"key": "apiEndpoint",
+			"value": "api.boxever.com"
+		},
+		{
+			"key": "pointOfSale",
+			"value": "betaSpinAir"
+		},
+		{
+			"key": "currencyCode",
+			"value": "USD"
+		},
+		{
+			"key": "language",
+			"value": "EN"
+		},
+		{
+			"key": "channel",
+			"value": "WEB"
+		},
+		{
+			"key": "guestRef",
+			"value": "5df26fc7-bb3f-4685-bbb4-fd5eca7d45c6\""
+		},
+		{
+			"key": "guestEmail",
+			"value": "bill.bryers@sitecorecdp.com"
+		},
+		{
+			"key": "identifiersProvider",
+			"value": "ProfileSystem"
+		},
+		{
+			"key": "identifiersId",
+			"value": "B7524AE6-CF1C-440F-B1A2-0C9D42F5CB41"
+		},
+		{
+			"key": "dataExtensionName",
+			"value": "extEmailPreferences"
+		},
+		{
+			"key": "dataExtensionRef",
+			"value": "42264dac-d2c2-531c-84aa-a85ef8735b6f"
+		},
+		{
+			"key": "orderRef",
+			"value": "1fb820e2-b29c-4df1-9950-77949385eb0d"
+		},
+		{
+			"key": "orderItemRef",
+			"value": "\t\nThe reference of the order item."
+		},
+		{
+			"key": "orderContactRef",
+			"value": "6ca149d1-8f23-456b-85df-2ce23f96a679"
+		},
+		{
+			"key": "orderConsumerRef",
+			"value": ""
+		},
+		{
+			"key": "batchFlowsJobRef",
+			"value": ""
+		},
+		{
+			"key": "decisionModelDefinitionRef",
+			"value": "e8878fdb-4031-423c-a12b-5691381f0c89"
+		},
+		{
+			"key": "decisionModelDefinitionRevision",
+			"value": ""
+		},
+		{
+			"key": "decisionModelVariantRef",
+			"value": ""
+		},
+		{
+			"key": "decisionModelVariantRevision",
+			"value": ""
+		},
+		{
+			"key": "connectionRef",
+			"value": ""
+		}
+	]
+}
